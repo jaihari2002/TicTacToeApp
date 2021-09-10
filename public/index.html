@@ -857,10 +857,10 @@ let xPressCount=0,oPressCount=0;
          if(xPressCount==5)
          {
            socket.emit('drawFlag',parseInt(room.innerHTML),socket.id);
-           setTimeout(function(){
+         
                 socket.emit('restartStartEnable','self',parseInt(room.innerHTML),socket.id)
     socket.emit('restartStartDisable','opponent',parseInt(room.innerHTML),socket.id)
-    },4100)
+   
   
          }
 
@@ -881,10 +881,10 @@ let xPressCount=0,oPressCount=0;
         if(oPressCount==5)
          {
              socket.emit('drawFlag',parseInt(room.innerHTML),socket.id);
-             setTimeout(function(){
+            
                 socket.emit('restartStartEnable','self',parseInt(room.innerHTML),socket.id)
     socket.emit('restartStartDisable','opponent',parseInt(room.innerHTML),socket.id)
-    },4000)
+   
  
 
          }
