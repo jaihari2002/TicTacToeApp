@@ -261,6 +261,7 @@
 
 //  
 setInterval(function(){
+     socket.emit('myTableInfo',parseInt(room.innerHTML),socket.id,parseInt(wins.innerHTML),parseInt(loses.innerHTML));
     if(navCheck.checked==true)
   {
     welcome.style.top="100%";
@@ -1575,7 +1576,7 @@ socket.on('oponentVerify',(userCount,isHost)=>{   //TO PRINT WAIT FOR OPPONENT
 
 }
   else if(userCount>=2){
-    socket.emit('myTableInfo',parseInt(room.innerHTML),socket.id,parseInt(wins.innerHTML),parseInt(loses.innerHTML));
+   
     waitForPlayer.style.opacity="1";
   playerOnline.innerHTML=userCount;
 if(isHost){
