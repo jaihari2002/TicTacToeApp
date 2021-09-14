@@ -277,19 +277,19 @@ if( parseInt(playerOnline.innerHTML)==2){
 if(parseInt(points.innerHTML)>parseInt(opponentPoints.innerHTML))
 {
         thumbIcon.style.transform="rotate(0deg)";
-    console.log('leading');
+    //console.log('leading');
 document.querySelector(".myTable").style.color="lime";
 document.querySelector(".opponentTable").style.color="red";
 }
 else if(parseInt(points.innerHTML)<parseInt(opponentPoints.innerHTML))
 {
-    console.log('falling');
+   // console.log('falling');
         thumbIcon.style.transform="rotate(180deg)";
     document.querySelector(".myTable").style.color="red";
 document.querySelector(".opponentTable").style.color="lime";
 }
 else if(parseInt(points.innerHTML)==parseInt(opponentPoints.innerHTML))
-{ console.log('draw');
+{ //console.log('draw');
     thumbIcon.style.transform="rotate(90deg)";
     document.querySelector(".myTable").style.color="orange";
 document.querySelector(".opponentTable").style.color="orange";
@@ -1531,6 +1531,7 @@ socket.on('opponentName',(name)=>{
 })
 
 socket.on('myTableInfo',(opponentWin,opponentLoss)=>{  
+    console.log(`opponent table verify:wins=${opponentWin},loses=${opponentLoss}`);
     opponentWins.innerHTML=opponentWin;
     opponentLoses.innerHTML=opponentLoss;
     opponentPoints.innerHTML=opponentWin*10;
