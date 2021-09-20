@@ -87,7 +87,19 @@ io.on('connection',(socket)=>{
         socket.emit('startEnable');
        
     })
-
+socket.on('kickOutOpponent',(room,currentUser)=>{
+    
+         if(myMap.get(room).user1==currentUser)
+         {
+             socket.broadcast.to(myMap.get(room).user2).emit('kickOutOpponent');
+             
+             }
+             else if(myMap.get(room).user2==currentUser){
+                 socket.broadcast.to(myMap.get(room).user1).emit('kickOutOpponent');
+                 
+             }
+     
+ })
     socket.on('startDisable',(room,currentUser)=>{
      
         if(myMap.get(room).user1==currentUser)
