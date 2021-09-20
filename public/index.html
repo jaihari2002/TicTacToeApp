@@ -467,7 +467,13 @@ socket.on('create',(nickName,socketId,roomId,playerCount)=>{
 
 
 var createGameCount=0,joinGameCount=0,unknownCount=0;
-
+  socket.on("kickOutOpponent",()=>{
+        location.reload();
+     })
+      kickOut.addEventListener('click',e=>{ 
+        socket.emit('kickOutOpponent',parseInt(room.innerHTML),socket.id); 
+      
+      });
 
 createGame.addEventListener('click',e=>{
     e.stopPropagation();
