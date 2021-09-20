@@ -324,7 +324,7 @@
   const scoreIcon = document.querySelector(".scoreIcon")
   countdown.style.color="red";
 
- 
+  const popupMsg = document.querySelector(".popupMsg")
   const waitForPlayer=document.querySelector('.waitForPlayer');
   const socket=io()
   socket.on('connection')
@@ -341,6 +341,29 @@ setTimeout(function(){
     document.querySelector(".bottom ").style.display="block";
     },4000)
 
+     socket.on("kickOutOpponent",()=>{
+       
+    popupMsg.innerHTML='Host Kicked You!!!';
+    opponentPopup.style.transform='scale(1)';
+    opponentPopup.style.opacity='1';
+
+
+setTimeout(function(){ 
+    opponentPopup.style.transform='scale(0)';
+    opponentPopup.style.opacity='0';
+    popupMsg.innerHTML='Opponent left game!!!';
+},3000);
+
+setTimeout(function(){ 
+        location.reload();
+    },4000);
+
+
+     })
+      kickOut.addEventListener('click',e=>{ 
+        socket.emit('kickOutOpponent',parseInt(room.innerHTML),socket.id); 
+  
+      });
 
 
 setInterval(function(){
@@ -467,13 +490,7 @@ socket.on('create',(nickName,socketId,roomId,playerCount)=>{
 
 
 var createGameCount=0,joinGameCount=0,unknownCount=0;
-  socket.on("kickOutOpponent",()=>{
-        location.reload();
-     })
-      kickOut.addEventListener('click',e=>{ 
-        socket.emit('kickOutOpponent',parseInt(room.innerHTML),socket.id); 
-      
-      });
+  
 
 createGame.addEventListener('click',e=>{
     e.stopPropagation();
