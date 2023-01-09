@@ -1,4 +1,4 @@
- Tic Tac Toe multiplayer Game :
+ Tic Tac Toe multiplayer Game(Mobile responsive) :
  can be played on two different screen devices.
 Features:-
  -create room
