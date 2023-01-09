@@ -4,7 +4,7 @@ Tic Tac Toe multiplayer Game(mobile view):
  
  
  
-Features:-
+Features:
 
 -create room
 
@@ -14,12 +14,12 @@ Features:-
  
  -game count management
  
- -score calculatioN
+ -score calculation
  
  -lead player runtime notify.
  
  
 
-Technology used:-
+Technology used:
 
  -Socket.io
